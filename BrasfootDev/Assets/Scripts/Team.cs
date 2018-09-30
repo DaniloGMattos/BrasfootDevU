@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Team : MonoBehaviour {
+	public Player player;
 	private enum League{A,B,C,D};
 	private League league;
 	private string teamName;
@@ -18,6 +19,9 @@ public class Team : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+	void CheckStats(){
 		
 	}
 }
