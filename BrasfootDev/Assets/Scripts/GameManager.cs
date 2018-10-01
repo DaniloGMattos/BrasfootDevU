@@ -5,24 +5,44 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class GameManager : MonoBehaviour {
-	public Team team;
+	public Team team_A;
+	private int goolsA;
+	private int goolsB;
+	public Team team_B;
 	public Player player;
 	public enum TurnState{
 		PROCESSING, //O JOGO ESTA ACONTECENDO E O TEMPO CORRENDO
 		WAITING,//TECNICO PEDIU TEMPO
 		NOTHING,//O USUARIO NAO SELECIONOU NADA
 		FINISHED //ACABOU O JOGO
-		
+	
 	}
+	public TurnState currentState;
+
 	//for the ProgressBar
 	private float cur_time = 0f;
 	private float max_time = 10f;
 	private float calc_timeElapsed;
+	private int actionTime = 0;
 	public Image ProgressBar;
-	public TurnState currentState;
+	
 	// Use this for initialization
 	void Start () {
 		currentState = TurnState.PROCESSING;
+		StartCoroutine("CompareInXSeconds");
+	}
+	IEnumerator CompareInXSeconds(){
+		bool isHappening = true;
+		int quantasVezes = 0;
+		while(isHappening)
+		{
+			Compare();
+			quantasVezes++;
+			if(quantasVezes == 3){
+				isHappening = false;
+			}
+			yield return new WaitForSeconds(3);
+		}
 	}
 	
 	// Update is called once per frame
@@ -32,6 +52,10 @@ public class GameManager : MonoBehaviour {
 
 			case(TurnState.PROCESSING):
 				UpdateProgressBrar();
+				if(Time.deltaTime <= max_time){
+					CompareInXSeconds();
+				}
+				
 			break;
 			
 			case(TurnState.WAITING):
@@ -45,7 +69,18 @@ public class GameManager : MonoBehaviour {
 		
 	}
 	void Compare(){
-		
+		print("comparando...");
+		if(team_A.power/team_B.defence >= 0.5){
+			goolsA ++;
+			print(team_A.teamName);
+		} 
+		else if (team_B.power/team_A.defence >= 0.5){
+			goolsB++;
+			print(team_B.teamName);
+		}
+		else{
+			print("No Gool");
+		}
 	}
 
 	void UpdateProgressBrar(){

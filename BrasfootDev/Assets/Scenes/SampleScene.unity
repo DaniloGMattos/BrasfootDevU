@@ -143,10 +143,10 @@ RectTransform:
   m_Father: {fileID: 337825384}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 43.76, y: 110.69}
-  m_SizeDelta: {x: 97.92, y: 6.95}
+  m_AnchorMin: {x: 0.2565607, y: 0.88622034}
+  m_AnchorMax: {x: 0.8182197, y: 0.9116102}
+  m_AnchoredPosition: {x: -0.23999786, y: 0.1000061}
+  m_SizeDelta: {x: 0.20999908, y: -0.22999573}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &84909394
 MonoBehaviour:
@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -365,6 +366,29 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68829534becc43ba8fd04852b72fe13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team_A: {fileID: 1455178774}
+  team_B: {fileID: 1425010951}
+  player:
+    playerName: 
+    leadership: 0
+    health: 0
+    agility: 0
+    stregth: 0
+    talent: 0
+    rarity: 0
+  currentState: 0
+  ProgressBar: {fileID: 1982454216}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -493,7 +517,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 620251952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: c68829534becc43ba8fd04852b72fe13, type: 3}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &620251952
@@ -560,10 +595,10 @@ RectTransform:
   m_Father: {fileID: 337825384}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.9, y: 110.6}
-  m_SizeDelta: {x: 100, y: 8.86}
+  m_AnchorMin: {x: 0.245, y: 0.8826102}
+  m_AnchorMax: {x: 0.82400006, y: 0.9152203}
+  m_AnchoredPosition: {x: 0.55000305, y: 0.1000061}
+  m_SizeDelta: {x: 1.3, y: -0.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743497115
 MonoBehaviour:
@@ -683,6 +718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1425010950}
   - component: {fileID: 1425010949}
+  - component: {fileID: 1425010951}
   m_Layer: 0
   m_Name: team2
   m_TagString: Untagged
@@ -749,6 +785,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425010951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425010948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbb94273de664f09b01d7ffc4588968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    playerName: 
+    leadership: 0
+    health: 0
+    agility: 0
+    stregth: 0
+    talent: 0
+    rarity: 0
+  league: 0
+  teamName: 
+  power: 0
+  defence: 0
+  crowd: 0
 --- !u!1 &1455178771
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455178773}
   - component: {fileID: 1455178772}
+  - component: {fileID: 1455178774}
   m_Layer: 0
   m_Name: team1
   m_TagString: Untagged
@@ -824,6 +885,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455178774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1455178771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbb94273de664f09b01d7ffc4588968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    playerName: 
+    leadership: 0
+    health: 0
+    agility: 0
+    stregth: 0
+    talent: 0
+    rarity: 0
+  league: 0
+  teamName: 
+  power: 0
+  defence: 0
+  crowd: 0
 --- !u!1 &1982454214
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,10 +939,10 @@ RectTransform:
   m_Father: {fileID: 337825384}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 43.76, y: 110.69}
-  m_SizeDelta: {x: 97.92, y: 6.95}
+  m_AnchorMin: {x: 0.2565607, y: 0.8862203}
+  m_AnchorMax: {x: 0.8182197, y: 0.9116102}
+  m_AnchoredPosition: {x: -0.23999786, y: 0.1000061}
+  m_SizeDelta: {x: 0.20999908, y: -0.22999573}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1982454216
 MonoBehaviour:
