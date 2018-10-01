@@ -18,3 +18,4 @@ public class Player {
 	public Rarity rarity;
 
 }
+

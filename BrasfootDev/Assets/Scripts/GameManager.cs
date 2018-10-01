@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour {
 	public enum TurnState{
 		PROCESSING, //O JOGO ESTA ACONTECENDO E O TEMPO CORRENDO
 		WAITING,//TECNICO PEDIU TEMPO
-		NOTHING,
-		FINISHED
+		NOTHING,//O USUARIO NAO SELECIONOU NADA
+		FINISHED //ACABOU O JOGO
 		
 	}
 	//for the ProgressBar
