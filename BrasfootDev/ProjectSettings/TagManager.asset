@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Team
+  - OtherTeam
+  - MyTeam
   layers:
   - Default
   - TransparentFX
@@ -38,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: back
+    uniqueID: 876002759
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

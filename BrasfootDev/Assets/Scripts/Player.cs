@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 public class Player {
+	public string teamName;
 	public string playerName;
-	public int leadership;
-	public int health;
-	public int agility;
-	public int stregth;
-	public int talent;
+	public float leadership;
+	public float health;
+	public float agility;
+	public float stregth;
+	public float talent;
 	public enum Rarity{
 		BRONZE,
 		GOLD,
