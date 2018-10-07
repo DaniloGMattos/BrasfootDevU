@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		team_A.teamName = "Na Hora";
-		team_B.teamName = "Tapetinho";
+		team_A.teamName = "Tapetinho";
+		team_B.teamName = "Na Hora";
 		currentState = TurnState.PROCESSING;
 		StartCoroutine("CompareInXSeconds");//Inicializa a função
 	}

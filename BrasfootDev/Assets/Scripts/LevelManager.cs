@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour {
 	}
 	public void LoadNextLevel(){
 		Application.LoadLevel(Application.loadedLevel +1 );//posso botar o level index ou uma string, nesse caso estou usando o level index
+		print("NextLevel");
 	}
 
 	public void QuitRequest(){

@@ -13,15 +13,7 @@ public class Team : MonoBehaviour{
 	public float power;//DETERMINA A CHANCE DE FAZER GOOLS
 	public float defence;//DETERMINA A CHANCE DE NAO TOMAR GOOLS
 	public float crowd; //BUFA OS STATUS DE DEFESA E POWER
-	void Awake(){
-		for (int i = 0; i < 5; i++)
-		{
-			player.stregth = Random.Range(30f,100f);
-			player.talent = Random.Range(30f,100f);
-			Players.Add	(player);
-			player = new Player(); 
-		}
-	}
+	
 
 	void Start () {
 
@@ -43,7 +35,7 @@ float PlayerTalentMean(){
 	float sum = 0; 
 	foreach (Player player in Players )
 	{
-		sum += player.stregth;
+		sum += player.talent;
 	}
 	return sum;
 	}
