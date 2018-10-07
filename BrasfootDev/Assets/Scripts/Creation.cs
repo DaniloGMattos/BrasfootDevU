@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Creation : MonoBehaviour {
 	private List<GameObject> models = new List<GameObject>();
-	public GameObject myTeam;
+	
 	public Text TeamName;
 	// Defaul Index of model
 	public int selectionIndex = 0;
@@ -19,19 +19,19 @@ public class Creation : MonoBehaviour {
 			item.gameObject.SetActive(false);
 		}
 		models[selectionIndex].SetActive(true);
-		myTeam = models[selectionIndex];
+
 		
 	}
 	public void SelectNext(){
 		indication++;
 		Select(indication);
-		myTeam = models[selectionIndex];
+		
 		
 	}
 	public void SelectBack(){
 		indication--;
 		Select(indication);
-		myTeam = models[selectionIndex];
+		
 		
 	}
 	public void Select (int index){
