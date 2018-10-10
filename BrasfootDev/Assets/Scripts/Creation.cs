@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Creation : MonoBehaviour {
 	private List<GameObject> models = new List<GameObject>();
+	public InputField inputField;
 	
 	public Text TeamName;
 	// Defaul Index of model
@@ -53,6 +54,10 @@ public class Creation : MonoBehaviour {
 	 if(models[selectionIndex].active){
             TeamName.text = models[selectionIndex].GetComponent<Team>().teamName;
         }
+	
 		
+	}
+	public void DefineCoachName(string newText){
+		CoachController.GetInstance().coach.coachName=inputField.text;
 	}
 }

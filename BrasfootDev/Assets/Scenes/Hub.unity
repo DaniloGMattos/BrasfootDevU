@@ -965,7 +965,7 @@ MonoBehaviour:
   TeamName: {fileID: 921006196}
   PowerPB: {fileID: 0}
   DefencePB: {fileID: 0}
-  CoachName: {fileID: 0}
+  CoachName: {fileID: 1377935110}
   League: {fileID: 0}
   Money: {fileID: 0}
   CoachLevel: {fileID: 0}
@@ -1642,7 +1642,7 @@ GameObject:
   - component: {fileID: 1377935111}
   - component: {fileID: 1377935110}
   m_Layer: 5
-  m_Name: CoachName
+  m_Name: CoachNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

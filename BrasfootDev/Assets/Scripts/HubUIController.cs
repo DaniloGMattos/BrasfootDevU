@@ -15,8 +15,12 @@ public class HubUIController : MonoBehaviour {//Vai controlar toda a interface d
 
 	// Use this for initialization
 	void Start () {
+		//nome do time na tela
 		myTeam = TeamController.GetInstance().myTeam;
 		TeamName.text = myTeam.GetComponent<Team>().teamName;
+		//nome do tecnico na tela
+		CoachName.text = CoachController.GetInstance().coach.coachName;
+
 	}
 	
 	// Update is called once per frame
