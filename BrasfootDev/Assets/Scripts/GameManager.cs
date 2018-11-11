@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class GameManager : MonoBehaviour {
+	public GameObject PlayingCanvas;
+	public GameObject ResoultsCanvas;
 	public Text timer;
 	public Text goolsHome;
 	public Text goolsOther;
@@ -13,6 +15,8 @@ public class GameManager : MonoBehaviour {
 	private int goolsB;
 	public Team team_B;
 	public Player player;
+	public GameObject myTeam;
+	public GameObject EnemmyTeam;
 	public enum TurnState{
 		PROCESSING, //O JOGO ESTA ACONTECENDO E O TEMPO CORRENDO
 		WAITING,//TECNICO PEDIU TEMPO
@@ -31,9 +35,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		team_A.teamName = "Tapetinho";
-		team_B.teamName = "Na Hora";
+		//identify my Team and enemmy team and set their positions
+		SetOnScreem();
+	
 		currentState = TurnState.PROCESSING;
+		PlayingCanvas.SetActive(true);
+		ResoultsCanvas.SetActive(false);
 		StartCoroutine("CompareInXSeconds");//Inicializa a função
 	}
 	IEnumerator CompareInXSeconds(){
@@ -72,6 +79,8 @@ public class GameManager : MonoBehaviour {
 			case(TurnState.FINISHED):
 				WhoWon();
 				currentState = TurnState.NOTHING;
+				PlayingCanvas.SetActive(false);
+				ResoultsCanvas.SetActive(true);
 			break;
 		}
 		
@@ -125,5 +134,22 @@ public class GameManager : MonoBehaviour {
 		}else{
 			print(team_B.teamName + " ganhou!");
 		}
+	}
+	void SetOnScreem(){
+		myTeam = TeamController.GetInstance().myTeam;
+		if(myTeam == TeamController.GetInstance().LeagueDteams[0]){
+			EnemmyTeam = TeamController.GetInstance().LeagueDteams[1];
+		}else{
+			EnemmyTeam = TeamController.GetInstance().LeagueDteams[0];
+		}
+		EnemmyTeam.SetActive(true);
+		myTeam.transform.position = new Vector3(-1.81f,1.83f,0);
+		myTeam.transform.localScale = new Vector3(myTeam.transform.localScale.x/2.04752736f,myTeam.transform.localScale.y/2.04752736f,0);
+		EnemmyTeam.transform.position = new Vector3(1.79f, 1.83f,0);
+		EnemmyTeam.transform.localScale = new Vector3(EnemmyTeam.transform.localScale.x/2.04752736f,EnemmyTeam.transform.localScale.y/2.04752736f,0);
+
+		team_A = myTeam.GetComponent<Team>();
+		team_B = EnemmyTeam.GetComponent<Team>();
+		
 	}
 }
