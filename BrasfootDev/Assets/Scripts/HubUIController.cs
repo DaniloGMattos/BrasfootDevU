@@ -20,11 +20,19 @@ public class HubUIController : MonoBehaviour {//Vai controlar toda a interface d
 		TeamName.text = myTeam.GetComponent<Team>().teamName;
 		//nome do tecnico na tela
 		CoachName.text = CoachController.GetInstance().coach.coachName;
+		SetTeamOnScene();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+	void SetTeamOnScene(){
+		myTeam.transform.localScale = new Vector3(myTeam.transform.localScale.x* 0.85259677362f, myTeam.transform.localScale.y * 0.85259677362f,    myTeam.transform.localScale.z);
+		myTeam.transform.position = new Vector3 (0f,1.1f,0);
+		if(myTeam.GetComponent<Team>().teamName == "Na Hora"){
+			myTeam.transform.position = new Vector3 (0f,0.5f,0);
+		}
 	}
 }
