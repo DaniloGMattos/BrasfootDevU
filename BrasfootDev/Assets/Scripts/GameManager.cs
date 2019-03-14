@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	public Player player;
 	public GameObject myTeam;
 	public GameObject EnemmyTeam;
+	public GameObject toDestroy;
 	public enum TurnState{
 		PROCESSING, //O JOGO ESTA ACONTECENDO E O TEMPO CORRENDO
 		WAITING,//TECNICO PEDIU TEMPO
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour {
 		PlayingCanvas.SetActive(true);
 		ResoultsCanvas.SetActive(false);
 		StartCoroutine("CompareInXSeconds");//Inicializa a função
+
+		
 	}
 	IEnumerator CompareInXSeconds(){
 		bool isHappening = true;
@@ -81,6 +84,8 @@ public class GameManager : MonoBehaviour {
 				currentState = TurnState.NOTHING;
 				PlayingCanvas.SetActive(false);
 				ResoultsCanvas.SetActive(true);
+				SetBackInPosition();
+
 			break;
 		}
 		
@@ -151,5 +156,20 @@ public class GameManager : MonoBehaviour {
 		team_A = myTeam.GetComponent<Team>();
 		team_B = EnemmyTeam.GetComponent<Team>();
 		
+	}
+	public void SetBackInPosition(){
+		
+		myTeam.transform.localScale = new Vector3((myTeam.transform.localScale.x*2.04752736f)/0.85259677362f,(myTeam.transform.localScale.y*2.04752736f)/0.85259677362f,0);
+		
+		EnemmyTeam.transform.localScale = new Vector3((EnemmyTeam.transform.localScale.x*2.04752736f)/0.85259677362f,(EnemmyTeam.transform.localScale.y*2.04752736f)/0.85259677362f,0);
+		myTeam.transform.position = new Vector3 (0f,1.1f,0);
+		if(EnemmyTeam.GetComponent<Team>().teamName == "Na Hora"){
+			myTeam.transform.position = new Vector3 (0f,0.5f,0);
+		}
+		EnemmyTeam.SetActive(false);
+		myTeam.SetActive(false);
+	}
+	public void ActiveToHub(){
+		myTeam.SetActive(true);
 	}
 }

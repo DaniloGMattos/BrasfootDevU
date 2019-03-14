@@ -11,6 +11,7 @@ public class TeamController : Singleton <TeamController> {//Vai controlar os sta
 	public List<Player> Players = new List<Player>();// Lista que recebe todos os jogadores
     public Creation creation;
     public GameObject myTeam;
+    public GameObject enemmyTeam;
     
 	public Player playerData;//pra passar os dados de cada jogador
 	//para passar os dados para criar um time
@@ -45,6 +46,7 @@ public class TeamController : Singleton <TeamController> {//Vai controlar os sta
 	public void SelectMyTeam(){
         int index = creation.selectionIndex;
         myTeam = LeagueDteams[index];
+        enemmyTeam = GameObject.FindGameObjectWithTag("OtherTeam");
 	}
 
     public static TeamController GetInstance(){

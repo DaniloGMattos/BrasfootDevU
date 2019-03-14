@@ -11,6 +11,7 @@ public class HubUIController : MonoBehaviour {//Vai controlar toda a interface d
 	public Text Money;
 	public Text CoachLevel;
 	public GameObject myTeam;
+	public GameObject otherTeam;
 	
 
 	// Use this for initialization
@@ -21,6 +22,7 @@ public class HubUIController : MonoBehaviour {//Vai controlar toda a interface d
 		//nome do tecnico na tela
 		CoachName.text = CoachController.GetInstance().coach.coachName;
 		SetTeamOnScene();
+		myTeam.SetActive(true);
 
 	}
 	
@@ -34,5 +36,9 @@ public class HubUIController : MonoBehaviour {//Vai controlar toda a interface d
 		if(myTeam.GetComponent<Team>().teamName == "Na Hora"){
 			myTeam.transform.position = new Vector3 (0f,0.5f,0);
 		}
+
+
+		otherTeam = GameObject.FindGameObjectWithTag("OtherTeam");
+		otherTeam.SetActive(false);
 	}
 }
